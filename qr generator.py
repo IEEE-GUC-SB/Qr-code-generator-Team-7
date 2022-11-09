@@ -1,12 +1,11 @@
-import requests,json
 import pyimgur
+import qrcode
 # -*- coding: utf-8 -*-
 """
 Created on Wed Nov  9 13:04:08 2022
 
 @author: mohamed
 """
-import qrcode
 CLIENT_ID = '7aa8b838eb5897a'
 im = pyimgur.Imgur(CLIENT_ID)
 def gen(data,id):
