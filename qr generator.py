@@ -8,7 +8,7 @@ CLIENT_ID = '7aa8b838eb5897a'
 im = pyimgur.Imgur(CLIENT_ID)
 
 
-def gen(data, id):
+def gen(data, id,col_count):
     qr = qrcode.QRCode(
         version=3, error_correction=qrcode.constants.ERROR_CORRECT_L)
     data2 = data + "\n" + "IEEE-"+str(id)
@@ -18,15 +18,15 @@ def gen(data, id):
     PATH = temp
     uploaded_img = im.upload_image(PATH, title="NODE")
     Link = uploaded_img.link
-    write(Link,id)
+    write(Link,id,col_count)
 
 
 
-def write(link,row):
+def write(link,row,col_count):
     rb = xlrd.open_workbook('Book1.xls')
     wb = copy(rb)
     w_sheet = wb.get_sheet(0)
-    w_sheet.write(row,2,link)
+    w_sheet.write(row,col_count,link)
     wb.save('Book1.xls')
     
 
@@ -35,11 +35,12 @@ def write(link,row):
 workbook = xlrd.open_workbook(r"Book1.xls")
 sheet = workbook.sheet_by_index(0)
 row_count = sheet.nrows
+col_count = sheet.ncols
 for cur_row in range(0, row_count):
     cell_name = sheet.cell(cur_row, 0)
     cell_email = sheet.cell(cur_row, 1)
     name = cell_name.value
     email=cell_email.value
-    gen(name+"\n"+email,cur_row)
+    gen(name+"\n"+email,cur_row,col_count)
 
 
