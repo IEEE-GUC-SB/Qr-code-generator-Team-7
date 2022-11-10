@@ -4,7 +4,7 @@
 
 **Instalation Notes :**
 
-1) Downlaod the .py file
+1) Downlaod the .py file <br />
 2) put your excel file **In the same directory** <br />
 3)**Make sure** that your excel file is with the extention .xls <br />
 to convert xlsx to xls :  open your xlsx sheet --> file --> save as --> browse --> save as type : Excel 97-2003 Workbook
