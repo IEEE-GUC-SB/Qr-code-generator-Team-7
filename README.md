@@ -2,7 +2,7 @@
 
 ## This program reads an excel sheet and encodes the data into a qr code with the addition of a unique ID and writes the data back in  the excel sheet
 
-**Instalation Notes : **
+**Instalation Notes :**
 
 1) Downlaod the .py file
 2) put your excel file **In the same directory**
