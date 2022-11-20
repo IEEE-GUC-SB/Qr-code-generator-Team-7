@@ -4,11 +4,13 @@ const app = express();
 const Guest = require("./guests");
 const reader = require("xlsx");
 require("dotenv").config();
+MONGOURI =
+  "mongodb+srv://mohamedhatem:abcd@cluster0.d31talr.mongodb.net/?retryWrites=true&w=majority";
 const file = reader.readFile(
   "Accepted Non-Gucian Registrations_sessions_Qr.xlsx"
 );
 app.use(express.json()); //Very important...!!!!
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 app.post("/", async (req, res) => {
   const sheets = file.SheetNames;
   const guest = "";
@@ -35,7 +37,7 @@ app.patch("/", async (req, res) => {
 });
 
 mongoose
-  .connect(process.env.MONGOURL)
+  .connect(MONGOURI)
   .then(() => {
     app.listen(port, () => console.log("Connected to port " + port));
   })
